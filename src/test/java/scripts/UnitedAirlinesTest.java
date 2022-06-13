@@ -117,27 +117,23 @@ public class UnitedAirlinesTest extends Base{
     public void testTicketBuyingProcess(){
         driver.get("https://www.united.com/en/us");
 
-        unitedHomePage.travelTypeRadioButtons.get(1).click();
+        actions.click(unitedHomePage.travelTypeRadioButtons.get(1)).perform();
         actions.click(unitedHomePage.fromInput).keyDown(Keys.COMMAND).sendKeys("a").perform();
         actions.keyUp(Keys.COMMAND).perform();
-        unitedHomePage.fromInput.sendKeys("Chicago, IL, US (ORD)");
-        unitedHomePage.toInput.sendKeys("Miami, FL, US (MIA)");
-        unitedHomePage.dateInput.click();
+        actions.sendKeys("Chicago, IL, US (ORD)").perform();
+        actions.sendKeys(unitedHomePage.toInput,"Miami, FL, US (MIA)").perform();
+        actions.click(unitedHomePage.dateInput).perform();
 
         for (int i = 0; i < 4; i++) {
             actions.click(unitedHomePage.nextButton).perform();
             Waiter.pause(2);
         }
-
-        unitedHomePage.jan30.click();
-
-        unitedHomePage.travelersInput.click();
-        unitedHomePage.plusButton.click();
-
-        unitedHomePage.typeDropDown.click();
-        unitedHomePage.businessOrFirst.click();
-
-        unitedHomePage.submitButton.click();
+        actions.click(unitedHomePage.jan30).perform();
+        actions.click(unitedHomePage.travelersInput).perform();
+        actions.click(unitedHomePage.plusButton).perform();
+        actions.click(unitedHomePage.typeDropDown).perform();
+        actions.click(unitedHomePage.businessOrFirst).perform();
+        actions.click(unitedHomePage.submitButton).perform();
 
         Assert.assertEquals(unitedHomePage.departHeader.getText(), "Depart: Chicago, IL, US to Miami, FL, US");
     }
