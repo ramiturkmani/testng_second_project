@@ -2,13 +2,9 @@ package scripts;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.Waiter;
-
-import javax.swing.*;
 
 public class UnitedAirlinesTest extends Base{
 
